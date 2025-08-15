@@ -2,7 +2,7 @@ import reflex as rx
 from my_portfolio.components.navbar import navbar
 from my_portfolio.components.footer import footer
 from my_portfolio.views.header.header import header
-from my_portfolio.components.inicio import inicio
+from my_portfolio.components.home import home
 from my_portfolio.components.terminal_static import terminal_static
 from my_portfolio.styles.styles import Size as Size
 import my_portfolio.styles.styles as styles
@@ -26,7 +26,7 @@ def index() -> rx.Component:
             rx.center(
                 rx.hstack(
                     terminal_static(),
-                    inicio(),                
+                    home(),               
                     spacing="8",  
                     max_width=styles.MAX_WIDTH,
                     width="100%",

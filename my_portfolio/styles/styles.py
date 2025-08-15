@@ -96,4 +96,3 @@ image_style = {
         "transform": "translate(-3px, -3px)"
     }
 }
-

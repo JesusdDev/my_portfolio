@@ -4,7 +4,7 @@ from my_portfolio.styles.styles import Spacing as Spacing
 from my_portfolio.styles.colors import Color
 from my_portfolio.styles.colors import TextColor
 
-def inicio() -> rx.Component:
+def home() -> rx.Component:
     return rx.stack(
         rx.box(
             rx.heading("🚀 Explora mi trabajo usando comandos de terminal o los botones de navegación", margin=Size.SMALL.value, align="center"),
@@ -90,11 +90,13 @@ def inicio() -> rx.Component:
         margin_bottom=Size.BIG.value,
         padding=Size.SMALL.value                    
         ),
+    width="50%",
+    height="auto",
     direction="column",
     align="center",
     border_width="1px",
     border_radius="30px",
     border_color="#1dd34a",
     spacing=Spacing.SMALL.value,
-    background_color=Color.SECONDARY_BG.value    
+    background_color=Color.SECONDARY_BG.value 
     )

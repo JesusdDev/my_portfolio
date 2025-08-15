@@ -35,7 +35,7 @@ def terminal_static() -> rx.Component:
             background_color=Color.SECONDARY_BG.value,
             border_radius="30px",
             width="100%",
-            height="53vh",
+            height="55vh",
             padding=Size.SMALL.value
             )
         )
