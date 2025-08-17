@@ -7,11 +7,9 @@ def navbar() -> rx.Component:
     return rx.hstack(
         rx.heading("Bienvenido a mi", color=TextColor.PRIMARY.value),
         rx.heading("Portfolio Interactivo", color=TextColor.SECONDARY.value),
-        bg=Color.SECONDARY_BG.value,
-        #position="stiky",
+        background_color=Color.SECONDARY_BG.value,
         padding_x=Size.DEFAULT.value,
         padding_y=Size.SMALL.value,
-        #z_index="999",
         top=Size.ZERO.value        
     )
 

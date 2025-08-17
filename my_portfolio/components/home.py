@@ -11,7 +11,7 @@ def home() -> rx.Component:
             rx.text("$Whoami", align="center", color=TextColor.EXTRA.value),
             rx.text("FullStack Python", align="center"),            
             rx.text("$ echo 'Especialidades'", align="center"),
-            rx.text(
+            rx.box(
                 rx.stack(rx.text("Data Science •", color=TextColor.EXTRA.value),
                     rx.text("Process Automation •", color=TextColor.EXTRA.value),
                     rx.text("Desktop Applications", color=TextColor.EXTRA.value),

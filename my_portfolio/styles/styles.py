@@ -5,16 +5,12 @@ from .fonts import Font, FontWeight
 
 # Constants
 MAX_WIDTH = "1280px"
-FADEIN_ANIMATION = "animate__animated animate__fadeIn"
-BOUNCEIN_ANIMATION = "animate__animated animate__bounceIn"
 
 # Sizes
 
 STYLESHEETS = [
     "https://fonts.googleapis.com/css2?family=Audiowide:wght@400;500&display=swap",
     "https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@400;500&display=swap",
-    #"https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css",
-    #"/css/styles.css"
 ]
 
 
@@ -46,9 +42,6 @@ BASE_STYLE = {
     "font_family": Font.DEFAULT.value,
     "font_weight": FontWeight.REGULAR.value,
     "background_color": Color.BACKGROUND.value,
-    #"background_image": "url('/bg_dark_pattern.jpg')",
-    #"background_repeat": "repeat",
-    #"background_attachment": "fixed",
     rx.text:{
         "color": TextColor.SECONDARY.value,
         "font_family": Font.DEFAULT.value,
