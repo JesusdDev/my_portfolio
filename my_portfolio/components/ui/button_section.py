@@ -3,21 +3,24 @@ from my_portfolio.styles.styles import Size as Size
 from my_portfolio.styles.styles import Spacing as Spacing
 
 
-def button(text: str, image: str, on_click_handler: rx.event) -> rx.Component:
-    return rx.button(
-        rx.hstack(
-            rx.image(
+def button_section(text: str, image: str, url: str, is_external = False) -> rx.Component:
+    return rx.link(
+        rx.button(
+            rx.hstack(
+                rx.image(
                 src=image,
                 width=Size.LARGE.value,
                 height=Size.LARGE.value,                    
-            ),
-            rx.text(text),
+                ),
+                rx.text(text),
                 align="start",
                 spacing=Spacing.MEDIUM_SMALL.value,
                 margin=Spacing.ZERO.value,
+            ),
+             width="100%",    
         ),
-        on_click= on_click_handler,
-        width="auto"
-    ),
-    
+        href=url,
+        is_external= is_external,
+        width="auto",
+    )
 

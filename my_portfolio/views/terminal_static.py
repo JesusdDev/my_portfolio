@@ -1,5 +1,5 @@
 import reflex as rx
-from my_portfolio.views.links.links import links_section
+from my_portfolio.views.links_section import links_section
 from my_portfolio.styles.styles import Size as Size
 from my_portfolio.styles.colors import Color
 from my_portfolio.styles.colors import TextColor
