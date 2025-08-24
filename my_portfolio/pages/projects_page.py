@@ -34,11 +34,11 @@ def projects_page() -> rx.Component:
             rx.center(
                 rx.hstack(
                     terminal_static(),
-                    projects(),          
-                    spacing="9",  
+                    projects(),
+                    padding=Size.DEFAULT.value,          
+                    spacing="7",            
                     max_width=styles.MAX_WIDTH,
-                    width="100%",
-                    margin_y=Size.BIG.value,           
+                    width="100%",           
                 ),
             ),
             rx.center(

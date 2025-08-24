@@ -35,7 +35,8 @@ def index() -> rx.Component:
                 rx.hstack(
                     terminal_static(),
                     TerminalState.dynamic_main_content,            
-                    spacing="9",  
+                    padding=Size.DEFAULT.value,          
+                    spacing="7", 
                     max_width=styles.MAX_WIDTH,
                     width="100%",
                     margin_y=Size.BIG.value,           
