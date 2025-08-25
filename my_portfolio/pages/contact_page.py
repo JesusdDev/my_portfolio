@@ -10,7 +10,7 @@ from my_portfolio.styles.styles import Size as Size
 import my_portfolio.styles.styles as styles
 
 @rx.page(
-        route=Route.CONTACT.value,
+    route=Route.CONTACT.value,
     title=utils.contact_tittle,
     description=utils.contact_description,
     meta=utils.contact_meta        
@@ -30,17 +30,17 @@ def contact_page() -> rx.Component:
                 )                                        
             )
         ),                                                               
-            rx.center(
-                rx.hstack(
-                    terminal_static(),
-                    contact(),
-                    padding=Size.DEFAULT.value,          
-                    spacing="7",  
-                    max_width=styles.MAX_WIDTH,
-                    width="100%",         
-                ),
-            ),
-            rx.center(
-                footer(),
-            ),             
+        rx.center(
+            rx.hstack(
+                terminal_static(),
+                contact(),
+                padding=Size.DEFAULT.value,          
+                spacing="7",  
+                max_width=styles.MAX_WIDTH,
+                width="100%",         
+            )
+        ),
+        rx.center(
+            footer()
+        ),             
     )

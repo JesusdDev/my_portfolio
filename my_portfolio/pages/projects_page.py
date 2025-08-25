@@ -13,8 +13,7 @@ import my_portfolio.styles.styles as styles
     route=Route.PROJECTS.value,
     title=utils.projects_tittle,
     description=utils.projects_description,
-    meta=utils.projects_meta
-        
+    meta=utils.projects_meta        
 )
 
 def projects_page() -> rx.Component:
@@ -31,17 +30,17 @@ def projects_page() -> rx.Component:
                 )                                        
             )
         ),                                                               
-            rx.center(
-                rx.hstack(
-                    terminal_static(),
-                    projects(),
-                    padding=Size.DEFAULT.value,          
-                    spacing="7",            
-                    max_width=styles.MAX_WIDTH,
-                    width="100%",           
-                ),
-            ),
-            rx.center(
-                footer(),
-            ),             
+        rx.center(
+            rx.hstack(
+                terminal_static(),
+                projects(),
+                padding=Size.DEFAULT.value,          
+                spacing="7",            
+                max_width=styles.MAX_WIDTH,
+                width="100%",           
+            )
+        ),
+        rx.center(
+            footer()
+        ),             
     )

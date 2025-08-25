@@ -13,8 +13,7 @@ import my_portfolio.styles.styles as styles
     route=Route.ABOUT.value,
     title=utils.about_tittle,
     description=utils.about_description,
-    meta=utils.about_meta
-        
+    meta=utils.about_meta        
 )
 
 def about_page() -> rx.Component:
@@ -31,18 +30,17 @@ def about_page() -> rx.Component:
                 )                                        
             )
         ),                                                               
-            rx.center(
-                rx.hstack(
-                    terminal_static(),
-                    about(),
-                    padding=Size.DEFAULT.value,          
-                    spacing="7",            
-                    max_width=styles.MAX_WIDTH,
-                    width="100%",
-                    margin_y=Size.BIG.value,           
-                ),
-            ),
-            rx.center(
-                footer(),
-            ),             
+        rx.center(
+            rx.hstack(
+                terminal_static(),
+                about(),
+                padding=Size.DEFAULT.value,          
+                spacing="7",            
+                max_width=styles.MAX_WIDTH,
+                width="100%",          
+            )
+        ),
+        rx.center(
+            footer()
+        ),             
     )
