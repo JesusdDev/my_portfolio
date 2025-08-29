@@ -3,6 +3,41 @@ from my_portfolio.styles.styles import Size as Size
 from my_portfolio.styles.colors import Color
 from my_portfolio.styles.colors import TextColor
 from my_portfolio.styles.styles import Spacing as Spacing
+from my_portfolio.components.ui.button_send import button_send
+import httpx
+
+class FormState(rx.State):
+    name: str = ""
+    email: str = ""
+    subject: list [str] = ""
+    message: str = ""
+    status: str = ""
+
+    @rx.event
+    def handler_submit(self, form_data: dict):
+        self.name = form_data.get("name", "")
+        self.email = form_data.get("email", "")
+        self.subject = form_data.get("subject", "")
+        self.message = form_data.get("message", "")
+
+        data = {
+            "name": self.name,
+            "email": self.email,
+            "subject": self.subject,
+            "message": self.message
+        }
+
+        try:
+            url_api = "http://localhost:8000/contact"
+            response = httpx.post(url_api, json=data)
+
+            if response.status_code == 200:
+                self.status = "Mensaje enviado con éxito"
+            else:
+                self.status = f"Error al enviar el mensaje: {response.text}"
+        except Exception as e:
+            self.status = f"Ocurrió un error: {e}"
+
 
 def contact() -> rx.Component:
     return rx.flex(
@@ -15,7 +50,6 @@ def contact() -> rx.Component:
                     padding_x=Size.DEFAULT.value
             ),
             width="100%",
-            Spacing=Spacing.VERY_SMALL.value,
             border_width="1px",
             border_radius="30px",
             border_color=Color.BORDER_COLOR.value,
@@ -25,23 +59,35 @@ def contact() -> rx.Component:
         rx.hstack(
             rx.stack(
                 rx.heading("Envíame un mensaje", size="2", padding=Size.SMALL.value),
-                rx.box(
-                    rx.input(placeholder="Tu nombre"),
-                    rx.input(placeholder="Tu correo"),
-                    rx.input(placeholder="Asunto"),
-                    rx.text_area(placeholder="Tu mensaje"),
-                    rx.button("Enviar", width="100%")                    
+                rx.form(
+                    rx.hstack(
+                        rx.input(placeholder="Tu nombre", name="name", min_length=4, max_length=15, required=True),
+                        rx.input(placeholder="Tu correo",name="email", required=True)
                     ),
-                    width="100%",
-                    padding=Size.DEFAULT.value,
-                    border_width="1px",
-                    border_radius="30px",
-                    border_color=Color.BORDER_COLOR.value,
-                    spacing=Spacing.SMALL.value,
-                    background_color=Color.SECONDARY_BG.value,
-                    direction="column",
-                    flex_grow=1
-                ),                
+                    rx.select(placeholder="Hablemos sobre: ",
+                              name="subject",
+                              items=["Página Web", "Análisis de Datos", "Aplicación de Escritorio", "Automatización de Procesos"],
+                              variant="soft",
+                              color_scheme="gray",
+                              radius="small",
+                              size="2",
+                              required=True
+                    ),
+                    rx.text_area(placeholder="Tu mensaje", name="message", max_length=200, required=True),
+                    button_send("Enviar Mensaje", 
+                                "icons/send.svg"
+                    ),
+                    on_submit=FormState.handler_submit
+                ),                   
+                width="100%",
+                padding=Size.DEFAULT.value,
+                border_width="1px",
+                border_radius="30px",
+                border_color=Color.BORDER_COLOR.value,
+                background_color=Color.SECONDARY_BG.value,
+                direction="column",
+                flex_grow=1
+            ),                
             rx.stack(
                 rx.box(
                     rx.heading("Información de Contacto", size="2", padding=Size.SMALL.value),
